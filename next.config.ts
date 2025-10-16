@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+import { withContentlayer } from 'next-contentlayer';
+
+import { version } from './package.json';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  typedRoutes: true,
+  env: {
+    APP_VERSION: version,
+  },
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);
